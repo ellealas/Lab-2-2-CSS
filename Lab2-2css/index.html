@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* I. Selectors */
+      /* Put styles for sections 1.1, 1.2, 1.3 and 1.4 here */
+      /* type selector for each article*/
+      article {
+        margin: 30px 0;
+        padding: 30px;
+        border: 1px solid black;
+        background-color: rgb(177, 196, 248);
+      }
+
+      /* Put styles for sections 1.2, 1.3, 1.4 here */
+      .style-me1 {
+        color: red;
+      }
+
+      #style-me2 {
+        color:blue;
+      }
+      /* A specific selector, also known as a combination selector or compound 
+      selector, is a CSS selector that combines multiple selectors together to target a 
+      specific element or group of element sspecific selector in CSS 
+      using no spaces between them */
+      .style-me1#style-me2{
+        color: purple
+      }
+
+      /* The descendant combinator in CSS is represented by a space (" ") character. 
+      It allows you to select elements that are descendants of another element. */
+
+      .my-descendants-are-styled p {
+        background: red;
+      }
+
+      /* To style only the <p> elements that are direct children of an 
+      element of a class you can use the child combinator (>)  */
+
+      .my-children-are-styled > p {
+      background: red;
+      }  
+
+      /* II. Box model and common properties */
+      
+
+      /* four value syntax */
+      .box {
+      /* 4-value syntax */
+      margin: 10px 20px 30px 40px; /* top right bottom left */
+      padding: 5px 15px 25px 35px;
+      }
+
+      /* two value syntax */
+      .box {
+      margin: 10px 20px;
+      padding: 5px 15px;
+      }
+
+      /* one value syntax */
+      .box {
+      margin: 10px;
+      padding: 5px;
+      }
+
+      /* set the width and height of an element using different dimension units (px, rem, vh, vw) */
+
+      /* px (pixels) */
+      .box {
+      margin: 10px;
+      padding: 5px;
+      }
+
+      /* rem (relative to the font-size of the root element) */
+
+      .box {
+      margin: 1rem;
+      padding: 2rem;
+      }
+
+      /* vh (viewport height)
+       (vh) is a unit of measurement in 
+      CSS that represents a percentage of the height of the viewport, 
+      which is the visible portion of the browser window.
+      The viewport height is divided into 100 equal parts, and 1vh represents 
+      1% of the height of the viewport. So, if the height of the viewport is 1000 pixels, 
+      1vh would be equal to 10 pixels.*/
+
+      .box {
+      margin: 5vh;
+      padding: 5vh;
+      }
+
+      /* vw (viewport width)
+      Viewport width (vw) is a unit of measurement in CSS that represents
+       a percentage of the width of the viewport, which is the visible portion of the browser window.
+      Similar to vh, the viewport width is divided into 100 equal parts, and 1vw represents 1% of the width 
+      of the viewport. So, if the width of the viewport is 1200 pixels, 1vw would be equal to 12 pixels. */
+
+      .box {
+      margin: 5vw;
+      padding: 5vw;
+      }
+
+      /* Try resizing the browser window while the height depends on the vw and vh units. What can you observe?
+      element's width/height adapt to different viewport sizes*/
+
+      /* 3.1 Set border on the element, try different border styles and colors */
+
+      .box {
+      margin: 5vw;
+      padding: 5vw;
+      border: 10px dotted rgb(243, 86, 86);
+      }
+
+      .box {
+      margin: 5vw;
+      padding: 5vw;
+      border: 10px dashed rgb(99, 243, 86);
+      }
+
+      .box {
+      margin: 5vw;
+      padding: 5vw;
+      border: 10px double rgb(99, 243, 86);
+      }
+
+      .box {
+      margin: 5vw;
+      padding: 5vw;
+      border: 10px solid rgb(86, 141, 243);
+      }
+
+      /* 4. box-sizing
+    4.1 Test different values of box-sizing. How is box-sizing affecting width and height of the  */
+
+    /* The box-sizing property in CSS determines how the width 
+    and height of an element are calculated, taking into 
+    account the content, padding, and border. There are two main 
+    values for box-sizing: content-box and border-box */
+
+    /* content-box (default): With box-sizing: content-box, the specified width and height of the element 
+    (width: 200px; height: 100px;) do not include the padding 
+    and border. The padding and border are added to the total width and height of the element, 
+    resulting in a larger visible size. So the actual size of the element will be wider and taller than 
+    the specified dimensions due to the added padding and border. */
+
+    .box {
+      /* content-box (default) */
+      box-sizing: content-box;
+      width: 1600px;
+      height: 300px;
+      padding: 100px;
+      border: 5px solid rgb(207, 51, 51);
+    }
+
+    /* border-box: With box-sizing: border-box, the specified width and height of the element
+     include the padding and border. The padding and border are included in the total width 
+     and height, so the element's content area will be smaller, and the padding and border will 
+     be contained within the specified dimensions. */
+
+     .box {
+      /* content-box (default) */
+      box-sizing: border-box;
+      width: 1600px;
+      height: 300px;
+      padding: 100px;
+      border: 5px solid rgb(207, 51, 51);
+    }
+      
+    /* border-box allows for a more predictable sizing of elements. 
+    When you set the width and height explicitly, 
+    they represent the dimensions of the content box, 
+    and the padding and border are accommodated within 
+    that space. This simplifies the calculations and makes 
+    it easier to create consistent layouts, especially when 
+    dealing with responsive designs and managing box model properties.
+
+    In contrast, using content-box requires accounting for the additional 
+    space occupied by padding and border when determining the overall size of the element. */
+
+
+    /* 5.1 Make text overflow outside of the element by setting width and height to smaller values 
+    so the text in a second box goes over the box borders. */
+
+    .box {
+      /* border-box (default) */
+      box-sizing: border-box;
+      width: 100px;
+      height: 30px;
+      padding: 100px;
+      border: 5px solid rgb(207, 51, 51);
+    }
+
+    .box {
+  /* Set width and height to smaller values */
+      width: 150px;
+      height: 50px;
+      border: 5px solid rgb(207, 51, 51);
+      overflow: scroll;
+    }
+
+    /* Overflow CSS Rules */
+    /* overflow: scroll;
+    .box class has overflow: scroll; 
+    set. If the content exceeds 
+    the dimensions of the box, both horizontal and 
+    vertical scrollbars will be displayed, allowing users 
+    to scroll in both directions to view the overflowing content. */
+    /* overflow: hidden: This property hides any content that 
+    exceeds the specified width and height of the element, preventing it
+    from being displayed outside of the box.
+
+    white-space: nowrap: This property ensures that the text within the 
+    element is displayed on a single line and does not wrap to the next line.
+
+    text-overflow: ellipsis: This property truncates the text and adds an ellipsis (...) 
+    at the end of the line when it overflows beyond the specified width of the element. */
+
+    /* 6.1 Set a wide outline (10px) on the .box. Observe that setting the outline does not move elements 
+    around like with borders. */
+
+    .box {
+      width: 1000px;
+      height: 500px;
+      border: 5px solid rgb(207, 51, 51);
+      outline: 10px solid rgb(224, 154, 149);
+      overflow: scroll;
+    }
+
+    /* 7.1 Set border-radius on the .box element. Start by trying out different values express in pixels e.g. 20px */
+
+    .box {
+      width: 1000px;
+      height: 500px;
+      border: 5px solid rgb(207, 51, 51);
+      outline: 10px solid rgb(224, 154, 149);
+      overflow: scroll;
+      border-radius: 20px;
+    }
+    /* 7.2 Setting border-radius to 50% together with width=height will make the element look like a circle. 
+    If the width is different from height then the element will become an ellipsis. 
+    Not that this is just a visual effect of the border and when you inspect the HTML element is still an rectangle */
+
+    .box {
+      width: 1000px;
+      height: 500px;
+      border: 5px solid rgb(207, 51, 51);
+      outline: 10px solid rgb(224, 154, 149);
+      overflow: scroll;
+      border-radius: 20px;
+      background: url("./assets/images/img1.png") center/cover no-repeat;
+    }
+
+
+
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 20px solid rgb(123, 153, 250);
+      outline: 20px solid rgb(255, 255, 255);
+      overflow: scroll;
+      border-radius: 20px;
+      background: url("./assets/images/img1.png") center/contain no-repeat;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+    /* background-size is set to contain, which scales the background image to fit within the .box element while maintaining its aspect ratio.
+    background-repeat is set to no-repeat, ensuring that the background image is not repeated vertically or horizontally.
+    background-position is set to center, which positions the background image at the center of the .box element. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /* III. Position */
+
+      /* 8.2 Set background-size to `contain`. Do not hesitate to try other values.
+      8.3 Set background-repeat to `no-repeat`. Do not hesitate to try other values.
+      8.4 Set background-position `to center`. Do not hesitate to try other values. */
+
+
+      /* The .position-absolute class has the position: absolute; property applied to it.
+      This positioning removes the element from the normal document flow and positions
+      it relative to its closest positioned ancestor or the initial containing block if no positioned 
+      ancestor is found. The element's position is determined by using the top, right, bottom, and 
+      left properties. */
+    .position-absolute {
+      position: absolute;
+      top: 20px;
+      right: 70px;
+    }
+    /* 2.2 Try different values for left, right, top, bottom on .absolute class. Start by not setting 
+    left and right or top and bottom at the same time, e.g. set top and left. What can you observe? */
+    /* right and top will position the element from the top-right corner of its containing element. */
+
+    .position-absolute {
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      right: 70px;
+    }
+
+
+
+    /* The .position-relative class has the position: relative; property applied to it. 
+    This positioning allows you to position child elements inside it using absolute or relative positioning. It retains the element's
+    position in the normal document flow but creates a new positioning context for its child elements. */
+    .position-relative {
+      position: relative;
+    }
+
+
+
+    /* How is absolute within relative different from absolute that is outside of relative?  */
+
+    /* when an absolutely positioned element is placed within a relatively positioned element, 
+    it is positioned relative to the relatively positioned element. However, when it is placed 
+    outside of any relative positioning context, it is positioned relative to the closest 
+    positioned ancestor or the initial containing block, and it does not affect the flow of other elements. */
+
+
+
+  /* 2.4 Set high z-index value on .position-absolute class. How does it affect the element? */
+    .position-absolute {
+    position: absolute;
+    z-index: 9999;
+  }
+  /* When you set a high z-index value on an element with the .position-absolute class, it will be 
+  positioned above elements with lower z-index values, including elements without a specified z-index.  */
+
+
+
+  /* 3. sticky
+  2.1 Set sticky position on .position-sticky class and scroll the page to see it work.
+  2.2 Note that we placed an HTML element with .position-sticky class outside of the article.
+  This is because sticky positioned elements can be affected only by scrolling on their direct parents. */
+
+  .position-sticky {
+  position: sticky;
+  top: 0;
+  background-color: #da5858;
+  padding: 10px;
+  }
+
+
+      /* IV. Styling text */
+
+
+      /* IV. Styling text
+      In this section we will focus on styling text. Search for the answers on the Internet.
+      1. Color - set font color using `color` CSS rule on .text-style class
+      2. Font-size - set font-size CSS rule on .text-style class
+      3. Line-height - set line-height CSS rule on .text-style class */
+
+    .text-style {
+      color: rgb(0, 140, 255);
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: bold;
+    }
+
+
+    /* 4. font-weight - set font-weight CSS rule on .text-style class
+    4.1 Try both, keyword and number values, e.g. `bold` and `800` */
+
+    .text-style {
+      color: rgb(0, 140, 255);
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 800;
+      font-family: 'Chokokutai', cursive;
+      font-family: 'Open Sans', sans-serif;
+      font-family: 'Playfair', serif;
+      font-family: 'Roboto Mono', monospace;
+      text-align: center;
+      letter-spacing: 2px;
+      word-spacing: 5px;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Playfair&display=swap');
+
+    /* styling links */
+
+    /* a, a:link - link in its untouched form */
+    a, a:link {
+      color: rgb(128, 128, 241);
+      text-decoration: underline;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    /* a:visited - link that has been visited */
+    a:visited {
+      color: rgb(4, 122, 43);
+      text-decoration: none;
+    }
+
+    /* a:hover - link that is hovered with a cursor */
+    a:hover {
+      color: red;
+      background-color: yellow;
+    }
+
+    /* a:active - link that has been “hovered” using keyboard */
+    a:active {
+      color: rgb(247, 107, 240);
+      background-color: rgb(241, 165, 165);
+    }
+
+    /* a:focus - link that has been clicked but the cursor is still not released or the browser is 
+    navigating to another webpage */
+    a:focus {
+      color: orange;
+      border: 2px solid orange;
+    }
+      /* VI. calc() */
+
+
+      /* VI. calc()
+    In this section we will perform simple calculations using calc.
+    1. Try setting `width: 100vw;` on .calc-style class. The element should overflow outside of the screen. */
+
+    /*setting width: 100vw, the element with the .calc-style 
+    class will have a width equal to 100% of the viewport width.
+    this will extend beyond the screen width causing horizontal overflow. */
+    .calc-style {
+      width: 100vw;
+    }
+
+
+    /* Set `width: calc(100vw - 100px);` on .calc-style class. 
+    Now the element occupies 100px less than the entire width of the screen. */
+
+
+    /* element with the .calc-style class will have a width calculated as 100% of the viewport width (100vw) minus 100px. 
+    This will result in the element occupying 100px less than the entire width of the screen */
+    .calc-style {
+      width: calc(100vw - 100px);
+    }
+
+    /* 1.3 While in this example we could just use `width: 100%`, 
+    Sometimes you will stumble upon scenarios where the `width: 100%` 
+    solution does not work due to other CSS properties. calc() is not 
+    commonly used and should be avoided. At the same time a lot of CSS frameworks 
+    use calc() internally so when we are using CSS frameworks we usually do not need to use calc(). */
+
+
+    
+      
+    
+
+      
+    </style>
+  </head>
+  <body>
+    <h1>My CSS journey</h1>
+
+    <article>
+      <h2>I. Selectors</h2>
+
+      <section>
+        <p class="style-me1">
+          1.2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <p id="style-me2">
+          1.3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <p id="style-me2" class="style-me1">
+          1.4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </section>
+
+      <section class="my-children-are-styled">
+        <h3>Direct children &lt;p&gt; are styled</h3>
+        <div>
+          <p>I'm not a direct child, but I'm a descendant</p>
+        </div>
+        <p>I'm a direct child, therefore I'm a descendant</p>
+      </section>
+
+      <section class="my-descendants-are-styled">
+        <h3>Descendants &lt;p&gt; are styled</h3>
+        <div>
+          <p>I'm not a direct child, but I'm a descendant</p>
+        </div>
+        <p>I'm a direct child, therefore I'm a descendant</p>
+      </section>
+    </article>
+
+    <article>
+      <h2>II. Box model and common properties</h2>
+      <div class="box">I'm the first box.</div>
+      <div class="box">
+        I'm second and I have a lot of content. In publishing and graphic
+        design, Lorem ipsum is a placeholder text commonly used to demonstrate
+        the visual form of a document or a typeface without relying on
+        meaningful content. "Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+        qui officia deserunt mollit anim id est laborum."
+      </div>
+      <div class="box" style="height: 200px">
+        My height is set using directly using style attribute.
+      </div>
+    </article>
+
+    <article>
+      <h2>III. Positioning</h2>
+      <div class="position-absolute">I'm absolutely positioned.</div>
+
+      <div class="position-relative">
+        I'm relatively positioned.
+        <div class="position-absolute">I'm absolutely positioned.</div>
+      </div>
+    </article>
+    <div class="position-sticky">I'm sticky positioned.</div>
+
+    <article>
+      <h2>IV. Styling text</h2>
+      <p class="text-style">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </p>
+    </article>
+
+    <article>
+      <h2>V. Styling links</h2>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_links"
+        alt="Styling links with Mozilla"
+        >Styling links (Mozilla)</a
+      >
+    </article>
+
+    <article>
+      <h2>VI. calc()</h2>
+      <div class="calc-style">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </div>
+    </article>
+
+    <div style="height: 1000px; background: #AA99CC">
+      I'm here just for height, to fill in extra space and pretend that the website is longer than it really is :).
+    </div>
+  </body>
+</html>
